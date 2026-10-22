@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SmartGuard AI - Smart Contract Vulnerability Detection</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">SG</span>
+      <div>
+        <h1>SmartGuard AI</h1>
+        <p>AI-Powered Smart Contract Vulnerability Detection &amp; Risk Assessment</p>
+      </div>
+    </div>
+    <div class="team">
+      <span>Acsa John</span><span>Alsha Mariya Roiji</span><span>Saniya John</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Module 1: Contract Upload -->
+    <section class="panel" id="input-panel">
+      <h2><span class="step">1</span> Contract Upload</h2>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="upload" role="tab">Upload .sol file</button>
+        <button class="tab" data-tab="paste" role="tab">Paste source code</button>
+      </div>
+
+      <div class="tab-body active" id="tab-upload">
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="file-input" accept=".sol" hidden />
+          <span class="dz-icon">&#128196;</span>
+          <strong>Drop a Solidity file here</strong>
+          <span class="dz-hint">or click to browse &middot; only <code>.sol</code> files, max 2 MB</span>
+        </label>
+        <div class="file-chip hidden" id="file-chip">
+          <span id="file-name"></span>
+          <button type="button" id="file-clear" aria-label="Remove file">&times;</button>
+        </div>
+      </div>
+
+      <div class="tab-body" id="tab-paste">
+        <textarea id="source-input" spellcheck="false"
+          placeholder="// SPDX-License-Identifier: MIT&#10;pragma solidity ^0.8.20;&#10;&#10;contract MyContract { ... }"></textarea>
+        <button type="button" class="link-btn" id="load-sample">Load sample vulnerable contract</button>
+      </div>
+
+      <button class="primary" id="analyze-btn">Analyze Contract</button>
+      <p class="error hidden" id="error-msg"></p>
+    </section>
+
+    <!-- Module 2: Slither Results -->
+    <section class="panel" id="results-panel">
+      <h2><span class="step">2</span> Vulnerability Report</h2>
+
+      <div class="placeholder" id="placeholder">
+        No analysis yet. Upload a contract or paste source code to begin.
+      </div>
+
+      <div class="results hidden" id="results">
+        <div class="meta-row">
+          <span class="meta"><strong id="r-contract">-</strong></span>
+          <span class="meta">Detectors run: <strong id="r-detectors">-</strong></span>
+          <span class="meta">Duration: <strong id="r-duration">-</strong></span>
+          <span class="meta">Total findings: <strong id="r-total">-</strong></span>
+        </div>
+
+        <div class="summary" id="summary"></div>
+
+        <div class="filter-row" id="filter-row"></div>
+
+        <div class="findings" id="findings"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Module 1 &middot; Contract Upload &nbsp;|&nbsp; Module 2 &middot; Slither Vulnerability Scanning</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

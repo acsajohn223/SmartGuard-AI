@@ -1,0 +1,18 @@
+# SmartGuard AI - backend dependencies
+# Install with: pip install -r requirements.txt
+
+# --- Web API ---------------------------------------------------------
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+python-multipart==0.0.9
+pydantic==2.9.0
+
+# --- Module 2: static analysis --------------------------------------
+# 0.11.3 is the version whose detector set matches SRS 4.2 exactly:
+# 29 High + 28 Medium = 57 detectors (Informational/Optimization excluded).
+slither-analyzer==0.11.3
+solc-select==1.0.4
+
+# --- Test tooling ----------------------------------------------------
+pytest==8.3.3
+httpx==0.27.2
