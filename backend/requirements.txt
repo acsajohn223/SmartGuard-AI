@@ -11,8 +11,14 @@ pydantic==2.9.0
 # 0.11.3 is the version whose detector set matches SRS 4.2 exactly:
 # 29 High + 28 Medium = 57 detectors (Informational/Optimization excluded).
 slither-analyzer==0.11.3
-solc-select==1.0.4
+# 1.2.0 is the first release with Apple Silicon (arm64) support.
+solc-select==1.2.0
 
 # --- Test tooling ----------------------------------------------------
 pytest==8.3.3
 httpx==0.27.2
+
+# --- Python 3.8 compatibility ---------------------------------------
+# The code uses PEP 585/604 annotations, which Python 3.8 cannot
+# evaluate at runtime. This backport makes the annotations work on 3.8.
+eval_type_backport==0.2.2; python_version < "3.9"
