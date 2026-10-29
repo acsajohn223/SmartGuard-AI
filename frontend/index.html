@@ -32,7 +32,11 @@
 
       <div class="tab-body active" id="tab-upload">
         <label class="dropzone" id="dropzone">
-          <input type="file" id="file-input" accept=".sol" hidden />
+          <!-- No "accept" filter on purpose: macOS maps the unknown .sol
+               extension to a dynamic UTI, so an accept=".sol" filter greys
+               the file out in the native Open dialog. The backend validates
+               the extension instead and returns a clear error. -->
+          <input type="file" id="file-input" hidden />
           <span class="dz-icon">&#128196;</span>
           <strong>Drop a Solidity file here</strong>
           <span class="dz-hint">or click to browse &middot; only <code>.sol</code> files, max 2 MB</span>
