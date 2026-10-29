@@ -52,13 +52,6 @@ body {
 .brand h1 { margin: 0; font-size: 19px; letter-spacing: 0.3px; }
 .brand p { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); }
 
-.team { display: flex; gap: 8px; flex-wrap: wrap; }
-.team span {
-  font-size: 12px; color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 4px 10px; border-radius: 999px;
-}
-
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
